@@ -1,0 +1,32 @@
+<html>
+<head>
+<title> Flask app</title>
+</head>
+<body>
+
+<div class="login">
+	<h1>Intrusion Detection</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="src_bytes" placeholder="src_bytes" required="required" />
+        <input type="text" name="dst_bytes" placeholder="dst_bytes" required="required" />
+        <input type="text" name="logged_in" placeholder="logged_in" required="required" />
+        <input type="text" name="count" placeholder="count" required="required" />
+        <input type="text" name="srv_count" placeholder="srv_count" required="required" />
+        
+        <input type="text" name="dst_host_srv_count" placeholder="dst_host_srv_count" required="required" />
+        <input type="text" name="dst_host_diff_srv_rate" placeholder="dst_host_diff_srv_rate" required="required" />
+        <input type="text" name="dst_host_same_src_port_rate" placeholder="dst_host_same_src_port_rate" required="required" />
+        <input type="text" name="dst_host_serror_rate" placeholder="dst_host_serror_rate" required="required" />
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+    </body>
+</html>
